@@ -16,18 +16,27 @@ class Scraper:
             
         return text
 
-    def extract_news(self, text, title_tag, date_tag):
+    def extract_news(self, text, title_tag, secondary_tag = None):
         news_list = []
         
         for news in text:
             title = news.find(title_tag)
-            date = news.find(date_tag)
+            if secondary_tag is not None:
+                secondary = news.find(secondary_tag)
+            else:
+                secondary = None
             
-            if title is not None and date is not None:
+            if title is not None and secondary is not None:
                 title = title.text.strip()
-                date = date.text.strip()
+                secondary = secondary.text.strip()
             
-                news = 'Titulo: ' + title + ', data: ' + date
+                news = 'Titulo: ' + title + ', ' + secondary
+                news_list.append(news)
+
+            elif title is not None:
+                title = title.text.strip()
+
+                news = 'Titulo: ' + title
                 news_list.append(news)
 
         return news_list
