@@ -1,3 +1,3 @@
-# NoticiasNFL-Scraping
+# Web Scraping de notícias esportivas
 
-WebScraping para extrair notícias da página oficial da NFL.
+WebScraping para extrair notícias da NFL, NBA e do GE.
