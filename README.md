@@ -13,6 +13,8 @@ git clone https://github.com/BrunoSaintClair/WebScraping-Noticias
 2. Dentro da pasta contendo o repositório, instalar as libs necessárias através do terminal, usando o comando:
 
 ```bash
+cd WebScraping-Noticias
+
 pip install -r requirements.txt
 
 #  No linux: 
