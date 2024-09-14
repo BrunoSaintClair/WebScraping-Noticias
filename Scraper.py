@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+from datetime import datetime
 
 class Scraper:
     def __init__(self):
@@ -42,6 +43,10 @@ class Scraper:
         return news_list
 
     def show_news(self, news_list):
-        for news in news_list:
-            print(news)
-            print('*' * 60)
+        with open("noticias.txt", "w", encoding="utf-8") as arquivo:
+            arquivo.write(f"Notícias extraídas em: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}:" + "\n")
+            arquivo.close()
+            with open("noticias.txt", "a", encoding="utf-8") as arquivo:
+                for news in news_list:
+                    arquivo.write("\n" + news)
+                arquivo.close()
